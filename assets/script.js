@@ -3,18 +3,21 @@ const viewHighScores = document.getElementById('header');
 let div = document.createElement("div")
 const body = document.body;
 const timer = document.getElementById("timer")
-const questionOne = document.createElement("div")
-const questionTwo = document.createElement("div")
-const questionThree = document.createElement("div")
-const questionFour = document.createElement("div")
+const awnserOne = document.createElement("button")
+const awnserTwo = document.createElement("button")
+const awnserThree = document.createElement("button")
+const awnserFour = document.createElement("button")
+const header = document.getElementById("title")
+const questionTitle = document.getElementById("question-title")
 
 startBtn.addEventListener('click', startGame);
 viewHighScores.addEventListener('click', viewScores);
+// awnserOne.addEventListener('click', nextQuestion);
+// awnserTwo.addEventListener('click', nextQuestion);
+// awnserThree.addEventListener('click', nextQuestion);
+// awnserFour.addEventListener('click', nextQuestion);
 
 
-// div.textContent = "Did this work?"
-
-body.appendChild(div);
 
 function countdown() {
     var timeLeft = 60;
@@ -36,35 +39,95 @@ function countdown() {
             timer.textContent = '';
             // Use `clearInterval()` to stop the timer
             clearInterval(timeInterval);
+            window.alert("TIMES UP NERD!!!")
         }
     }, 1000);
 }
 
-
-
-
-
-
-
-
-
-
 function startGame() {
-    questionOne.textContent = "Did this work"
-    questionTwo.textContent = "Did this work"
-    questionThree.textContent = "Did this work"
-    questionFour.textContent = "Did this work"
+    awnserOne.textContent = "strings"
+    awnserTwo.textContent = "booleans"
+    awnserThree.textContent = "alerts"
+    awnserFour.textContent = "numbers"
+    title.textContent = ""
+    questionTitle.textContent = "Commonly used data types DO NOT include:"
+    startBtn.textContent = ""
+    awnserOne.addEventListener('click', nextQuestion)
+    awnserTwo.addEventListener('click', nextQuestion)
+    awnserThree.addEventListener('click', nextQuestion)
+    awnserFour.addEventListener('click', nextQuestion)
     countdown()
 
-    body.appendChild(questionOne, questionTwo, questionThree, questionFour);
+    body.appendChild(awnserOne,);
+    body.appendChild(awnserTwo,);
+    body.appendChild(awnserThree,);
+    body.appendChild(awnserFour,);
 
+}
+
+
+
+const questions = {
+    title: 'Commonly used data types DO NOT include:',
+    alternatives: ['stings', 'booleans', 'alerts', 'numbers'],
+    correctAwnser: 2,
+}
+
+function nextQuestion() {
+    questionTitle.textContent = "The condition in an if/else statement is enclosed within _____."
+    awnserOne.textContent = "quotes"
+    awnserTwo.textContent = "curly brackets"
+    awnserThree.textContent = "parenthesis"
+    awnserFour.textContent = "square brackets"
+    awnserOne.addEventListener('click', questionThree)
+    awnserTwo.addEventListener('click', questionThree)
+    awnserThree.addEventListener('click', questionThree)
+    awnserFour.addEventListener('click', questionThree)
+    console.log("did this work i hope so")
+}
+
+function questionThree() {
+    questionTitle.textContent = 'Arrays in Javascript can be used to store ______.'
+    awnserOne.textContent = "numbers and strings"
+    awnserTwo.textContent = "other arrays"
+    awnserThree.textContent = "booleans"
+    awnserFour.textContent = "all of the above"
+    awnserOne.addEventListener('click', questionFour)
+    awnserTwo.addEventListener('click', questionFour)
+    awnserThree.addEventListener('click', questionFour)
+    awnserFour.addEventListener('click', questionFour)
+}
+
+function questionFour() {
+    questionTitle.textContent = 'string values must be enclosed within _____ when being assignes to variables.'
+    awnserOne.textContent = "commas"
+    awnserTwo.textContent = "curly brackets"
+    awnserThree.textContent = "quotes"
+    awnserFour.textContent = "parenthesis"
 }
 
 function viewScores() {
+    questionTitle.textContent = "Score = 42069"
+    awnserOne.addEventListener('click', viewScores)
     console.log("sharted")
 }
+// {
+//     title; 'The condition in an if/else statement is enclosed within _____.',
+//         alternatives;['quotes', 'curly brackets', 'parenthesis', 'square brackets'],
+//             correctAwnser; 1,
+// }
 
-const question = {
+// {
+//     title; 'Arrays in Javascript can be used to store ______.',
+//         alternatives;['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
+//             correctAwnser; 3,
+// }
 
-}
+// {
+//     title; 'string values must be enclosed within _____ when being assignes to variables.',
+//         alternatives;['commas', 'curly brackets', 'quotes', 'parenthesis'],
+//             correctAwnser; 2;
+// }
+
+
 
