@@ -10,9 +10,11 @@ const resultsContainer = document.getElementById('results');
 
 // declare variables
 let currentShowingQuestion = 0;
+let timeLeft = 30;
+
 
 startBtn.addEventListener('click', startGame);
-viewHighScores.addEventListener('click', viewScores);
+// viewHighScores.addEventListener('click', viewScores);
 
 quizContainer.addEventListener('click', event => {
     if (event.target.className == `answers-${currentShowingQuestion}`) {
@@ -25,7 +27,7 @@ quizContainer.addEventListener('click', event => {
             checkGameOver();
         } else {
             // HERE IS WHERE YOU WOULD REMOVE TIME
-            // YOUR WRONG
+
             checkGameOver();
         }
     }
@@ -44,37 +46,38 @@ function checkGameOver() {
 }
 
 // this is all of the questions for the quiz
-let questions = [
+const questions = [
     {
         question: 'Commonly used data types DO NOT include:',
         answers: ['strings', 'booleans', 'alerts', 'numbers'],
         correctAnswer: 2,
+        incorrectAwnsers: 0 || 1 || 3 || 4,
     },
     {
         question: 'The condition in an if/else statement is enclosed within _____.',
         answers: ['quotes', 'curly brackets', 'parenthesis', 'square brackets'],
         correctAnswer: 1,
+        incorrectAwnsers: 0 || 2 || 3 || 4,
     },
     {
         question: 'Arrays in Javascript can be used to store ______.',
-        answers: [
-            'numbers and strings', 'other arrays', 'booleans', 'all of the above',
-        ],
+        answers: ['numbers and strings', 'other arrays', 'booleans', 'all of the above',],
         correctAnswer: 3,
+        incorrectAwnsers: 0 || 1 || 2 || 4,
     },
     {
-        question:
-            'string values must be enclosed within _____ when being assignes to variables.',
+        question: 'string values must be enclosed within _____ when being assignes to variables.',
         answers: ['commas', 'curly brackets', 'quotes', 'parenthesis'],
         correctAnswer: 2,
+        incorrectAwnsers: 0 || 1 || 3 || 4,
     },
 ];
 
 function countdown() {
-    var timeLeft = 30;
+    let timeLeft = 30;
 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
+    const timeInterval = setInterval(function () {
         // As long as the `timeLeft` is greater than 1
         if (timeLeft > 1) {
             // Set the `textContent` of `timerEl` to show the remaining seconds
@@ -125,9 +128,7 @@ function startGame() {
 function quizOver() {
     title.textContent = 'Game Over!!';
     questionTitle.textContent = 'Your score is ____';
+    quizContainer.innerHTML = '';
+
 }
 
-function viewScores() {
-    questionTitle.textContent = 'Score = 42069';
-    console.log('sharted');
-}
