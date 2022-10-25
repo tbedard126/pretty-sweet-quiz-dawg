@@ -3,4 +3,4 @@ Quiz for week 4 of coding bootcamp
 
 
 
-![](assets\quiz picture.png)
+![](./assets\quiz picture.png)
